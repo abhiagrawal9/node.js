@@ -1,4 +1,4 @@
-// node code modules
+// node code modules -> http, https, fs, path, os
 const fs = require('fs');
 
 // write to a file in local sys
