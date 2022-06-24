@@ -1,0 +1,13 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Node.js basics",
+  "main": "server.js",
+  "author": "Abhishek Agrawal",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.3.3"
+  }
+}
