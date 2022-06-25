@@ -1,22 +1,28 @@
+const bodyParser = require('body-parser');
 const express = require('express');
+
+const PORT = 3000;
 
 const app = express();
 
-// app.use((req, res, next) => {
-//   console.log("I'm in a first middleware");
-//   next();
-// });
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use((req, res, next) => {
-//   console.log("I'm in the second middleware");
-// });
+app.use('/add-product', (req, res, next) => {
+  res.send(
+    '<form action="/product" method="POST"><input type="text" name="title" /><button type="submit">Add product</button></form>'
+  );
+});
 
-app.use('/users', (req, res, next) => {
-  res.send('<ul><li>User1</li><li>User2</li><li>User3</li></ul>');
+app.post('/product', (req, res, next) => {
+  const body = req.body.title;
+  console.log(body);
+  res.redirect('/');
 });
 
 app.use('/', (req, res, next) => {
-  res.send('<h1>Hello there</h1>');
+  res.send('<h1>Hello from express.js</h1>');
 });
 
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
