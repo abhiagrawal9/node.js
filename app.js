@@ -12,6 +12,4 @@ app.use(adminRoutes);
 
 app.use(shopRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
