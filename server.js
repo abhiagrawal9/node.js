@@ -1,12 +1,22 @@
 const express = require('express');
 
-const PORT = 3000;
-
 const app = express();
 
-app.use((req, res, next) => {
-  res.send('<h1>Hello from express.js</h1>');
-  next();
+// app.use((req, res, next) => {
+//   console.log("I'm in a first middleware");
+//   next();
+// });
+
+// app.use((req, res, next) => {
+//   console.log("I'm in the second middleware");
+// });
+
+app.use('/users', (req, res, next) => {
+  res.send('<ul><li>User1</li><li>User2</li><li>User3</li></ul>');
 });
 
-app.listen(PORT, () => console.log(`server is listering on ${PORT}`));
+app.use('/', (req, res, next) => {
+  res.send('<h1>Hello there</h1>');
+});
+
+app.listen(3000);
