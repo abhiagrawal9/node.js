@@ -1,11 +1,12 @@
-const http = require('http');
-
-const handleRequestRoutes = require('./routes');
+const express = require('express');
 
 const PORT = 3000;
 
-const server = http.createServer((req, res) => {
-  handleRequestRoutes(req, res);
+const app = express();
+
+app.use((req, res, next) => {
+  res.send('<h1>Hello from express.js</h1>');
+  next();
 });
 
-server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`server is listering on ${PORT}`));
